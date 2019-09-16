@@ -1,0 +1,39 @@
+1 package homework;
+2 
+3 import java.io.*;
+4 
+5 public class CopyFileTest {
+6     public static void main(String[] args) throws IOException {
+7         String path = "D:\\ÖÐÒ±\\day01\\javabase\\src\\homework\\CopyFileTest.java";
+8         File sourceFile = new File(path);
+9         Reader reader = new FileReader(sourceFile);
+10         BufferedReader bufferedReader = new BufferedReader(reader);
+11 
+12 
+13         File destFile = new File("D:\\ÖÐÒ±\\day01\\javabase\\src\\homework\\CopyFileTest.txt");
+14         Writer writer = new FileWriter(destFile);
+15         BufferedWriter bufferedWriter = new BufferedWriter(writer);
+16         String line = "";
+17         int lineNum = 1;
+18         while(true)
+19         {
+20             line = bufferedReader.readLine();
+21             if(line==null)
+22             {
+23                 break;
+24             }
+25 
+26 
+27             bufferedWriter.write(lineNum+" "+line);
+28             bufferedWriter.newLine();
+29             lineNum++;
+30         }
+31         bufferedWriter.flush();
+32         bufferedWriter.close();
+33         writer.close();
+34 
+35         bufferedReader.close();
+36         reader.close();
+37 
+38     }
+39 }
